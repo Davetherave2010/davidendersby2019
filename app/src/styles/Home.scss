@@ -1,0 +1,77 @@
+.Home {
+  text-align: center;
+}
+
+.Home-header {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  color: white;
+  background-color: #201e43;
+  min-height: 600px;
+  -webkit-clip-path: polygon(0px 100%,100% calc(100% - 250px),100% 0,0 0);
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    background: linear-gradient(0deg, #ff6a00, #ee0979);
+    animation: rotate-background 4s ease infinite;
+    backface-visibility: hidden;
+  }
+
+  @keyframes rotate-background {
+    @for $i from 0 through 100 {
+      $rotation: $i * 3.6;
+      #{$i}% {
+        background: linear-gradient(#{$rotation}deg, #ff6a00, #ee0979);
+      }
+    }
+  }
+
+  &-text-wrapper {
+    position: absolute;
+    top: 30%;
+    // transform: translateY(-40%);
+    z-index: 0
+  }
+
+  &-title {
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-size: 4.75em;
+  }
+
+  &-subtitle {
+    display: block;
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 2em;
+    color: #e86564;
+  }
+}
+
+.Home-body {
+  display: block;
+  height: 2000px;
+}
+
+.mapboxgl-canvas {
+  left: 0;
+}
+
+
+
+// 6a6cac
+// a4a0fe
+// e86564
+
+
+
+//
+
+//
