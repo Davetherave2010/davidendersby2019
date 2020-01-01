@@ -1,0 +1,25 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+
+  &-title {
+    display: block;
+    height: 100%;
+    max-width: 800px;
+    margin: 75px 0 50px;
+    padding: 0 42px;
+    font-size: 18vw;
+    line-height: 1;
+    text-align: left;
+    letter-spacing: -2px;
+    background: #8A2387;
+    background: linear-gradient(to bottom right, #F27121, #E94057, #8A2387);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+    @media (min-width: 768px) {
+      font-size: 140px;
+    }
+  }
+}
