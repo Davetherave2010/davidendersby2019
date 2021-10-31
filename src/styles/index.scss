@@ -30,13 +30,17 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Mont-Heavy'
 }
 
-.page {
-  position: relative;
-  min-height: 100vh;
-}
-
 .page__content-wrapper {
   max-width: 1000px;
   margin: 0 auto;
-  padding-bottom: 140px;
+}
+
+.wrapper {
+  min-height: 100vh;
+  margin-bottom: -140px;
+}
+
+.footer,
+.push {
+  height: 140px;
 }
