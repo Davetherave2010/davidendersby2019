@@ -7,19 +7,22 @@ import * as serviceWorker from './serviceWorker';
 import Footer from './components/Footer.jsx';
 
 import Home from './routes/Home.jsx';
-import About from './routes/About.jsx';
+// import About from './routes/About.jsx';
 
 import './styles/index.scss';
 
 ReactDOM.render(
     <Router history={createBrowserHistory()}>
-      <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="*">
-          <Redirect to="/" />
-        </Route>
-        // <Route path="/about" component={About}/>
-      </Switch>
+      <div class="wrapper">
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="*">
+            <Redirect to="/" />
+          </Route>
+          {/* <Route path="/about" component={About}/> */}
+        </Switch>
+        <div class="push"></div>
+      </div>
       <Footer />
     </Router>
   , document.getElementById('root'));
