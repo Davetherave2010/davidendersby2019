@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "eslint-config-react-app": "^6.0.0",
+    "eslint-config-react-app": "^7.0.0",
     "history": "^5.0.0",
     "node-sass": "^6.0.1",
     "react": "^17.0.1",
