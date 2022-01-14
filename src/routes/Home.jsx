@@ -4,10 +4,6 @@ import Header from '../components/Header.jsx'
 
 
 class Home extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
   render() {
     return (
       <div className="page Home">

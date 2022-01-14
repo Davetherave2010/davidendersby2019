@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Redirect, Switch } from "react-router-dom";
-import { createBrowserHistory } from 'history';
+import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 
 import Footer from './components/Footer.jsx';
@@ -12,19 +11,16 @@ import Home from './routes/Home.jsx';
 import './styles/index.scss';
 
 ReactDOM.render(
-    <Router history={createBrowserHistory()}>
-      <div class="wrapper">
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route path="*">
-            <Redirect to="/" />
-          </Route>
-          {/* <Route path="/about" component={About}/> */}
-        </Switch>
-        <div class="push"></div>
+    <BrowserRouter>
+      <div className="wrapper">
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+        <div className="push"></div>
       </div>
       <Footer />
-    </Router>
+    </BrowserRouter>
   , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
