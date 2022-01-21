@@ -1,3 +1,9 @@
+@property --a{
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 90deg;
+}
+
 .header {
   position: relative;
   display: flex;
@@ -14,12 +20,28 @@
     text-align: left;
     letter-spacing: -2px;
     background: #8A2387;
-    background: linear-gradient(to bottom right, #F27121, #E94057, #8A2387);
+
+    --a: 0deg;
+
+    @keyframes Rotate{
+      from {
+        --a:0deg;
+      }
+      to {
+        --a:360deg;
+      }
+    }
+
+    transition:--a 0.5s 0.1s;
+    background:linear-gradient(var(--a), #F27121, #E94057, #8A2387);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
+    animation: Rotate 20s linear infinite forwards;
 
     @media (min-width: 768px) {
       font-size: 140px;
     }
   }
 }
+
