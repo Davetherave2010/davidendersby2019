@@ -4,6 +4,8 @@ import github from '../images/github.svg'
 import instagram from '../images/instagram.svg'
 import medium from '../images/medium.svg'
 import twitter from '../images/twitter.svg'
+import linkedin from '../images/linkedin.svg'
+import fiveHundredPx from '../images/500px.svg'
 
 import '../styles/components/Footer.scss';
 
@@ -20,9 +22,9 @@ class Footer extends Component {
     return (
       <footer className="Footer">
         <ul className="social-icons__list">
-          <li className="social-icons__list-item social-icons__list-item--github">
-            <a href="https://www.github.com/davetherave2010">
-              <img className="social-icon" src={github} alt="Github octocat"/>
+          <li className="social-icons__list-item social-icons__list-item--twitter">
+            <a href="https://www.twitter.com/davidendersby1">
+              <img className="social-icon" src={twitter} alt="Twitter icon"/>
             </a>
           </li>
           <li className="social-icons__list-item social-icons__list-item--medium">
@@ -30,14 +32,24 @@ class Footer extends Component {
               <img className="social-icon" src={medium} alt="Medium icon"/>
             </a>
           </li>
-          <li className="social-icons__list-item social-icons__list-item--twitter">
-            <a href="https://www.twitter.com/davidendersby1">
-              <img className="social-icon" src={twitter} alt="Twitter icon"/>
+          <li className="social-icons__list-item social-icons__list-item--github">
+            <a href="https://www.github.com/davetherave2010">
+              <img className="social-icon" src={github} alt="Github octocat"/>
             </a>
           </li>
           <li className="social-icons__list-item social-icons__list-item--instagram">
             <a href="https://www.instagram.com/davetherave2010">
               <img className="social-icon" src={instagram} alt="Instagram icon"/>
+            </a>
+          </li>
+          <li className="social-icons__list-item social-icons__list-item--500px">
+            <a href="https://500px.com/p/Davetherave2010">
+              <img className="social-icon" src={fiveHundredPx} alt="500px icon"/>
+            </a>
+          </li>
+          <li className="social-icons__list-item social-icons__list-item--linkedin">
+            <a href="https://www.linkedin.com/in/endersbydavid/">
+              <img className="social-icon" src={linkedin} alt="Linkedin icon"/>
             </a>
           </li>
         </ul>

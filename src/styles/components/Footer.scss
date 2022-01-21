@@ -21,7 +21,6 @@
   padding: 0;
 
   &-item {
-    display: block;
     width: 40px;
     height: 40px;
     margin: 0 5px 0 0;
@@ -33,7 +32,7 @@
   display: block;
   max-width: 70%;
   max-height: 70%;
-  margin: 15%;
+  margin: 15% auto;
 }
 
 .heart-icon {

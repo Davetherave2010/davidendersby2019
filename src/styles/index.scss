@@ -30,6 +30,16 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Mont-Heavy'
 }
 
+a {
+  color: #E94057;
+  text-decoration: none;
+  transition: color .2s linear;
+
+  &:hover {
+    color: #8A2387;
+  }
+}
+
 .page__content-wrapper {
   max-width: 1000px;
   margin: 0 auto;
