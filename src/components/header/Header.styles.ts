@@ -1,15 +1,12 @@
-@property --a{
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 90deg;
-}
+import styled from "styled-components";
 
-.header {
+export const HeaderWrapper = styled.header`
   position: relative;
   display: flex;
   flex-flow: row wrap;
+`;
 
-  &-title {
+export const HeaderTitle = styled.h1`
     display: block;
     height: 100%;
     max-width: 800px;
@@ -21,8 +18,6 @@
     letter-spacing: -2px;
     background: #8A2387;
 
-    --a: 0deg;
-
     @keyframes Rotate{
       from {
         --a:0deg;
@@ -32,16 +27,14 @@
       }
     }
 
-    transition:--a 0.5s 0.1s;
+    transition: var(--a) 0.5s 0.1s;
     background:linear-gradient(var(--a), #F27121, #E94057, #8A2387);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
     animation: Rotate 20s linear infinite forwards;
 
-    @media (min-width: 768px) {
-      font-size: 140px;
-    }
+  @media (min-width: 768px) {
+    font-size: 140px;
   }
-}
-
+`;
