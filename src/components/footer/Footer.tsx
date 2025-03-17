@@ -2,7 +2,6 @@ import heart from "../../assets/heart.svg";
 import github from "../../assets/github.svg";
 import instagram from "../../assets/instagram.svg";
 import medium from "../../assets/medium.svg";
-import twitter from "../../assets/twitter.svg";
 import linkedin from "../../assets/linkedin.svg";
 import fiveHundredPx from "../../assets/500px.svg";
 import { FooterCopyright, FooterText, FooterWrapper, HeartIcon, SocialIcon, SocialIconsList, SocialIconsListItem } from "./Footer.styles";
@@ -14,11 +13,6 @@ const getYear = () => {
 export const Footer = () => (
   <FooterWrapper>
     <SocialIconsList>
-      <SocialIconsListItem>
-        <a href="https://www.twitter.com/davidendersby1">
-          <SocialIcon src={twitter} alt="Twitter icon" />
-        </a>
-      </SocialIconsListItem>
       <SocialIconsListItem>
         <a href="https://www.medium.com/@daendersby">
           <SocialIcon src={medium} alt="Medium icon" />
