@@ -10,7 +10,7 @@ export const Home = () => {
         <HomeBody>
           <HomeIntroduction>
             <p>
-              Hello. I am a Frontend Developer turned Engineering Manager, based in The Netherlands. I am currently leading the Users team at <a href="https://www.mews.com/en">Mews</a>. Previously, I led the DigitalOcean Amsterdam Meetup. I am passionate about technology, photography, the environment, the news and current affairs.
+              Hello! I am an Engineering Manager and Architectural Photographer based in the Netherlands. Currently, I lead the Users team at <a href="https://www.mews.com/en">Mews</a>. Previously, I was in charge of the DigitalOcean Amsterdam Meetup. In my spare time, I am passionate about technology, the environment, and staying updated on the news and current affairs.
             </p>
           </HomeIntroduction>
         </HomeBody>
