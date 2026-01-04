@@ -26,16 +26,20 @@ export const SocialIconsList = styled.ul`
 `
 
 export const SocialIconsListItem = styled.li`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
-  margin: 0 5px 0 0;
+  margin: 0 2px 0 0;
   background: #fff;
 `
 
 export const SocialIcon = styled.img`
   display: block;
-  max-width: 70%;
-  max-height: 70%;
+  max-width: 28px;
+  max-height: 28px;
   margin: 15% auto;
 `
 
