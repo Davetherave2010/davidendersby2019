@@ -4,6 +4,7 @@ import instagram from "../../assets/instagram.svg";
 import medium from "../../assets/medium.svg";
 import linkedin from "../../assets/linkedin.svg";
 import fiveHundredPx from "../../assets/500px.svg";
+import youtube from "../../assets/youtube.svg";
 import { FooterCopyright, FooterText, FooterWrapper, HeartIcon, SocialIcon, SocialIconsList, SocialIconsListItem } from "./Footer.styles";
 
 const getYear = () => {
@@ -14,28 +15,33 @@ export const Footer = () => (
   <FooterWrapper>
     <SocialIconsList>
       <SocialIconsListItem>
-        <a href="https://www.medium.com/@daendersby">
+        <a href="https://www.medium.com/@daendersby" target="_blank" rel="noopener noreferrer" aria-label="Medium (opens in new tab)">
           <SocialIcon src={medium} alt="Medium icon" />
         </a>
       </SocialIconsListItem>
       <SocialIconsListItem>
-        <a href="https://www.github.com/davetherave2010">
+        <a href="https://www.github.com/davetherave2010" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">
           <SocialIcon src={github} alt="Github octocat" />
         </a>
       </SocialIconsListItem>
       <SocialIconsListItem>
-        <a href="https://www.instagram.com/davetherave2010">
+        <a href="https://www.instagram.com/davetherave2010" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in new tab)">
           <SocialIcon src={instagram} alt="Instagram icon" />
         </a>
       </SocialIconsListItem>
       <SocialIconsListItem>
-        <a href="https://500px.com/p/Davetherave2010">
+        <a href="https://500px.com/p/Davetherave2010" target="_blank" rel="noopener noreferrer" aria-label="500px (opens in new tab)">
           <SocialIcon src={fiveHundredPx} alt="500px icon" />
         </a>
       </SocialIconsListItem>
       <SocialIconsListItem>
-        <a href="https://www.linkedin.com/in/endersbydavid/">
+        <a href="https://www.linkedin.com/in/endersbydavid/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">
           <SocialIcon src={linkedin} alt="Linkedin icon" />
+        </a>
+      </SocialIconsListItem>
+      <SocialIconsListItem>
+        <a href="https://www.youtube.com/@davetherave2010" target="_blank" rel="noopener noreferrer" aria-label="YouTube (opens in new tab)">
+          <SocialIcon src={youtube} alt="Youtube icon" />
         </a>
       </SocialIconsListItem>
     </SocialIconsList>
