@@ -5,6 +5,7 @@ import medium from "../../assets/medium.svg";
 import linkedin from "../../assets/linkedin.svg";
 import fiveHundredPx from "../../assets/500px.svg";
 import youtube from "../../assets/youtube.svg";
+import { appVersion } from "../../lib/version";
 import { FooterCopyright, FooterText, FooterWrapper, HeartIcon, SocialIcon, SocialIconsList, SocialIconsListItem } from "./Footer.styles";
 
 const getYear = () => {
@@ -50,7 +51,7 @@ export const Footer = () => (
       The Netherlands
     </FooterText>
     <FooterCopyright>
-      &copy; {getYear()} David Endersby
+      &copy; {getYear()} David Endersby &middot; {appVersion()}
     </FooterCopyright>
   </FooterWrapper>
 );
