@@ -1,8 +1,16 @@
 # DigitalOcean App Platform spec: static site.
 # Create the app from this spec in the DO dashboard (Apps > Create App > GitHub > davidendersby2019),
 # or: doctl apps create --spec .do/app.yaml
-# If the site already exists as an app, keep `name` identical to it so the deploy updates it.
-name: davidendersby2019
+# `name` must match the existing app exactly, or the deploy creates a second app. The deploy replaces
+# the app's whole spec with this file, so settings changed in the DO dashboard (domains, region) must
+# be mirrored here or they are lost.
+name: davidendersby-2019
+region: ams
+domains:
+  - domain: www.davidendersby.me
+    type: PRIMARY
+  - domain: davidendersby.me
+    type: ALIAS
 static_sites:
   - name: web
     github:
