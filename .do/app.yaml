@@ -12,7 +12,7 @@ domains:
   - domain: davidendersby.me
     type: ALIAS
 static_sites:
-  - name: web
+  - name: davidendersby-2019 # must match the existing component, or the update deletes it and adds a new one
     github:
       repo: Davetherave2010/davidendersby2019
       branch: master
