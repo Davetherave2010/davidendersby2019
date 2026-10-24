@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions:
+  contents: read # least privilege: CI can read the repo and nothing else
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -26,3 +29,67 @@ jobs:
 
       - name: Run tests
         run: npm run test:ci
+
+  deploy:
+    # Deploys only after the checks pass, and the run's result is the deploy status in GitHub.
+    # App Platform's own deploy_on_push is off (.do/app.yaml) so this is the only deploy path.
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    concurrency: deploy # one deploy at a time, never cancelled midway
+    permissions:
+      contents: read
+      pull-requests: read # to read the PR's minor/major label
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # need the tags
+          persist-credentials: false
+      # The version this deploy will be released as. It is worked out here, before the build, so the
+      # footer can show it; the release job below only publishes it once the deploy has succeeded.
+      # The version lives in git tags (CI never commits to master). Patch bump by default; label the
+      # PR `minor` or `major` for more. Re-running a commit that is already released keeps its version.
+      - id: version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+        run: |
+          next=$(git tag --points-at "$SHA" -l 'v[0-9]*' | head -1)
+          if [ -z "$next" ]; then
+            last=$(git tag -l 'v[0-9]*' --sort=-v:refname | head -1)
+            if [ -z "$last" ]; then
+              next=v1.0.0 # the first release is what was live when releases were introduced
+            else
+              labels=$(gh api "repos/$REPO/commits/$SHA/pulls" --jq '.[].labels[].name')
+              IFS=. read -r major minor patch <<< "${last#v}"
+              if echo "$labels" | grep -qx major; then next="v$((major + 1)).0.0"
+              elif echo "$labels" | grep -qx minor; then next="v$major.$((minor + 1)).0"
+              else next="v$major.$minor.$((patch + 1))"; fi
+            fi
+          fi
+          echo "version=$next" >> "$GITHUB_OUTPUT"
+      - uses: digitalocean/app_action/deploy@cc55bc9b848d25f9c1c9f831cf843fbab3fbfb15 # v2.0.11
+        env:
+          RELEASE_VERSION: ${{ steps.version.outputs.version }} # substituted into .do/app.yaml
+        with:
+          token: ${{ secrets.DIGITALOCEAN }}
+          print_build_logs: "true"
+          print_deploy_logs: "true"
+
+  # Publishes the version the deploy just shipped, so every release matches something that went live.
+  release:
+    needs: deploy
+    runs-on: ubuntu-latest
+    concurrency: release
+    permissions:
+      contents: write # create the tag and release; this is the only job that can write
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+          VERSION: ${{ needs.deploy.outputs.version }}
+        run: gh release view "$VERSION" --repo "$REPO" > /dev/null 2>&1 || gh release create "$VERSION" --repo "$REPO" --target "$SHA" --title "$VERSION" --generate-notes

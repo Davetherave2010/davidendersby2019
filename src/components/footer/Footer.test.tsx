@@ -33,4 +33,11 @@ describe('Footer', () => {
     const year = new Date().getFullYear().toString();
     expect(screen.getByText(new RegExp(year))).toBeInTheDocument();
   });
+
+  it('shows the app version', () => {
+    vi.stubEnv('VITE_APP_VERSION', 'v1.2.3');
+    render(<Footer />);
+    expect(screen.getByText(/v1\.2\.3/)).toBeInTheDocument();
+    vi.unstubAllEnvs();
+  });
 });
