@@ -37,6 +37,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     concurrency: deploy # one deploy at a time, never cancelled midway
+    environment: production # holds the DIGITALOCEAN secret, and only master can use it
     permissions:
       contents: read
       pull-requests: read # to read the PR's minor/major label
