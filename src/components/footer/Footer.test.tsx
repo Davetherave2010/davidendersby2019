@@ -34,10 +34,21 @@ describe('Footer', () => {
     expect(screen.getByText(new RegExp(year))).toBeInTheDocument();
   });
 
-  it('shows the app version', () => {
+  it('links the app version to its release', () => {
     vi.stubEnv('VITE_APP_VERSION', 'v1.2.3');
     render(<Footer />);
-    expect(screen.getByText(/v1\.2\.3/)).toBeInTheDocument();
+    const link = screen.getByRole('link', { name: /Release v1\.2\.3/ });
+    expect(link).toHaveTextContent('v1.2.3');
+    expect(link).toHaveAttribute('href', 'https://github.com/Davetherave2010/davidendersby2019/releases/tag/v1.2.3');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    vi.unstubAllEnvs();
+  });
+
+  it('shows a dev build without a link', () => {
+    vi.stubEnv('VITE_APP_VERSION', '');
+    render(<Footer />);
+    expect(screen.getByText(/dev build/)).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /Release/ })).not.toBeInTheDocument();
     vi.unstubAllEnvs();
   });
 });

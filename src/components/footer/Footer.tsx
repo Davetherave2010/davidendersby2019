@@ -6,7 +6,20 @@ import linkedin from "../../assets/linkedin.svg";
 import fiveHundredPx from "../../assets/500px.svg";
 import youtube from "../../assets/youtube.svg";
 import { appVersion } from "../../lib/version";
-import { FooterCopyright, FooterText, FooterWrapper, HeartIcon, SocialIcon, SocialIconsList, SocialIconsListItem } from "./Footer.styles";
+import { FooterCopyright, FooterText, FooterVersionLink, FooterWrapper, HeartIcon, SocialIcon, SocialIconsList, SocialIconsListItem } from "./Footer.styles";
+
+const releaseUrl = "https://github.com/Davetherave2010/davidendersby2019/releases/tag/";
+
+const Version = () => {
+  const version = appVersion();
+  // Local and test builds have no tag to link to.
+  if (!/^v\d/.test(version)) return <>{version}</>;
+  return (
+    <FooterVersionLink href={releaseUrl + version} target="_blank" rel="noopener noreferrer" aria-label={`Release ${version} (opens in new tab)`}>
+      {version}
+    </FooterVersionLink>
+  );
+};
 
 const getYear = () => {
   return new Date().getFullYear();
@@ -51,7 +64,7 @@ export const Footer = () => (
       The Netherlands
     </FooterText>
     <FooterCopyright>
-      &copy; {getYear()} David Endersby &middot; {appVersion()}
+      &copy; {getYear()} David Endersby &middot; <Version />
     </FooterCopyright>
   </FooterWrapper>
 );

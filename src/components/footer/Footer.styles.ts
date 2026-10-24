@@ -16,6 +16,10 @@ export const FooterCopyright = styled.p`
   margin: 0;
 `
 
+export const FooterVersionLink = styled.a`
+  color: inherit;
+`
+
 export const SocialIconsList = styled.ul`
   display: flex;
   flex-flow: row wrap;
