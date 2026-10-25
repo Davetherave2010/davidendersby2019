@@ -10,7 +10,7 @@ export const Home = () => {
         <HomeBody>
           <HomeIntroduction>
             <p>
-              Hello! I&apos;m Director of Product &amp; Engineering at <a href="https://www.mews.com/en">Mews</a>, based in the Netherlands, and a travel and <a href="https://www.instagram.com/davetherave2010">architectural photographer</a> on the side.
+              Hello! I&apos;m Director of Product &amp; Engineering at <a href="https://www.mews.com/en">Mews</a>, based in the Netherlands, and a <a href="https://www.instagram.com/davetherave2010">travel and architectural photographer</a> on the side.
             </p>
             <p>
               At Mews I lead the Users &amp; Ecosystem tribe. We own identity, SSO and permissions, and one team takes each problem from the product decision to production. I&apos;m not afraid to dive into the code myself when it keeps the team focused on what matters. SSO onboarding is the example I like best: every request took 15 to 20 minutes by hand, so I built the tooling to automate it end to end, and most requests now need no one at all.
@@ -25,7 +25,7 @@ export const Home = () => {
               I don&apos;t do well in the heat, so given the choice, I travel somewhere cold: Norway in February, Canada in November, Antarctica. I shoot the landscapes and whatever buildings I find on the way.
             </p>
             <p>
-              At home I&apos;m into green energy. I run a home battery on a dynamic energy contract through Frank Energie, which helps balance the grid in my neighbourhood, and Home Assistant to cut our household emissions. My flights probably cancel most of that out. I&apos;m probably the most boring person at a party, because I&apos;ll talk about electricity bills and cheap power for as long as you let me, and I like a good graph.
+              At home I&apos;m into green energy. I run a home battery on a dynamic energy contract through Frank Energie, which helps balance the grid in my neighbourhood, and Home Assistant to cut our household emissions. Yes, yes, I know my flights cancel most of that out. I&apos;m the most boring person at a party, because I&apos;ll talk about electricity bills and cheap power for as long as you let me, and I like a good graph.
             </p>
           </HomeIntroduction>
         </HomeBody>
